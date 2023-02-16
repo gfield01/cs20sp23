@@ -1,0 +1,16 @@
+.midpage{content: ""; display: table; clear: both;}
+.box {background-color:darkorange; width: 75%; float: right; margin: 45px 110px 45px}
+.header {background-color:darkorange;}
+.center { display: block; margin-left: auto; margin-right: auto; width: 50%;}
+.footer {background-color: darkorange; height: 100px; text-align: center;}
+ul.footer {font-family:Verdana, Geneva, Tahoma, sans-serif; list-style-type: none; color:beige; padding-top: 15px;}
+	/*responsive values from https://www.toptal.com/responsive-web/introduction-to-responsive-web-design-pseudo-elements-media-queries*/
+	@media (max-width: 1200px) {.box {margin-left: 50px}}
+	@media (max-width: 1024px) {.box {margin-left: 40px}}
+	@media (max-width: 900px) {.box {margin-left: 30px}}
+	@media (max-width: 600px) {.box {margin-left: 60px}}
+	@media (max-width: 480px) {.box {margin-left: 40} }
+	@media (max-width: 320px) {.box {margin-left: 40} }
+	@media (max-width: 1300px) {h2 {font-size: 32px} p {font-size: 18px} table {font-size: 32px}}
+	@media (max-width: 1200px) {h2 {font-size: 30px} table {font-size: 30px}}
+	@media (max-width: 1100px) {p {line-height: 29px}}

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Home</title>
+<meta name='viewport' content="width=devide-width, initial-scale=1">
+<style type="text/css">
+
+  table { font-family: Verdana, Geneva, Tahoma, sans-serif; width: 30%; color: darkorange; float: center; font-size: 50px;}
+  table.center {
+     margin-left:auto; 
+     margin-right:auto;
+   }
+
+   button{font-family: Verdana, Geneva, Tahoma, sans-serif; width: 30%; color: darkorange; float: center; font-size: 50px; background-color: beige;}
+   table.center {
+     margin-left:auto; 
+     margin-right:auto;
+   }
+    th { color: darkorange; background-color: beige; border: 2px solid beige; text-align: left; padding: 10px;}
+
+    tr {color: darkorange; background-color: beige; border: 2px solid beige; text-align: left; padding: 10px;}
+
+	h2 {font-family:Verdana, Geneva, Tahoma, sans-serif; color:beige; text-align: center; font-size: 50px; padding-top: 20px; padding-left: 3px; padding-right: 3px; text-align: center;}
+	p {font-family:Verdana, Geneva, Tahoma, sans-serif, 'Lucida Sans', Arial, sans-serif; color: beige; font-size: 30px; padding-bottom: 16px; padding-left: 10px; line-height: 30px; padding-right: 10px;
+		text-align: center}
+
+</style>
+<link rel="stylesheet" href="extStyle.css">
+</head>
+
+<body>
+  <div class='header'>
+          <img src="header_logo.png" alt="Logo" style="float:right; padding:10px;" scale=".5" width='150'>
+          
+          <h2> JOE'S HOT DOGS  
+            <br/ >
+          </h2>
+          <p>  FIRING UP THE GRILL SINCE 1982 </p>
+          
+  </div>
+
+  <div class='midpage'>
+
+
+    <div class='box' class='center'>
+      <h2>OUR MENU</h2>
+      <p> 
+        <table class="center">
+          <tr>
+            <th>Item</th>
+            <th>Price</th>
+          </tr>
+          <tr>
+            <td>Hot Dog</td>
+            <td>$4.00</td>
+  
+          </tr>
+          <tr>
+            <td>French Fries &nbsp; </td>
+            <td>$3.50</td>
+          </tr>
+          <tr>
+            <td>Drink</td>
+            <td>$1.75</td>
+          </tr>
+       
+        </table><br>
+      </p>
+      <p> Orders over $20 receive a 10% discount! </p>
+    </div>
+  <div class='box' class='center'>
+    <h2>ORDER NOW!</h2>
+    <button class='center' onclick="order()">PLACE ORDER</button>
+      <p id="order_summary"></p>
+      <p> 
+        <table class="center">
+
+          <tr>
+            <td>Subtotal</td>
+            <td>&nbsp;&nbsp;$<span id="sub"></span></td>
+  
+          </tr>
+
+          <tr>
+            <td>Discount </td>
+            <td> - $<span id="discount"></span></td>
+          </tr>
+
+
+          <tr>
+            <td> New Subtotal</td>
+            <td>&nbsp; $<span id="new_sub"></span></td>
+  
+          </tr>
+          
+          <tr>
+            <td>Tax</td>
+            <td>&nbsp;&nbsp;$<span id="tax"></span></td>
+          </tr>
+          <tr>
+            <td>Total</td>
+            <td>&nbsp;&nbsp;$<span id="tot"></span></td>
+          </tr>
+       
+        </table><br>
+      </p>
+
+      <script>
+        function order() {
+
+          let sub = 0; 
+          let new_sub = 0;
+          let discount = 0;
+          let tax = 0;
+          let tot = 0;
+
+          let dog_ct = prompt("How many hotdogs?", "0");
+          let fry_ct = prompt("How many french fry orders?", "0");
+          let drink_ct = prompt("How many drinks?", "0");
+          
+          if (dog_ct != null && fry_ct != null && drink_ct != null) {
+            sub = (dog_ct * 4) + (fry_ct * 3.50) + (drink_ct * 1.75);
+            document.getElementById("order_summary").innerHTML = "ORDER SUMMARY:" + dog_ct + " hotdogs, " + fry_ct + " french fries, " + drink_ct + " drinks";
+          
+            /*Check for Discount*/
+            if (sub >= 20) {
+            discount = sub * 0.1;
+            new_sub = sub - discount;
+            }
+            else{ new_sub = sub }
+                
+            tax = (new_sub * 0.0625);
+            tot = (new_sub + tax);
+            new_sub = (Math.round(new_sub * 100) / 100).toFixed(2);
+            discount = (Math.round(discount * 100) / 100).toFixed(2);
+            tax = (Math.round(tax * 100) / 100).toFixed(2);
+            tot = (Math.round(tot * 100) / 100).toFixed(2);
+            sub = sub.toFixed(2)
+
+            document.getElementById("sub").innerHTML = sub;
+            document.getElementById("discount").innerHTML = discount; 
+            document.getElementById("new_sub").innerHTML = new_sub;
+            document.getElementById("tax").innerHTML = tax;
+            document.getElementById("tot").innerHTML = tot;
+          }
+			}
+      </script>
+  </div>
+  </div>
+
+  <div class='footer'>
+    <ul class='footer'>
+      <li>Joe's Hot Dogs</li>
+      <li>Medford, MA 02155 </li>
+      <li>617-HOT-DOGS</li>
+      <li> <a style="text-align: right;" href="https://www.vecteezy.com/free-vector/hot-dog-logo">Hot Dog Logo Vectors by Vecteezy</a></li>
+    </ul>
+  </div>
+
+</body>
+</html>
